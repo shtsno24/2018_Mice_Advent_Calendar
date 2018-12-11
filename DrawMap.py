@@ -32,4 +32,4 @@ if __name__ == "__main__":
         import traceback
         traceback.print_exc()
     finally:
-        input(">>")
+        input(">>")#エラー吐き出したときの表示待ち

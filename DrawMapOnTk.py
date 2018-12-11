@@ -8,7 +8,6 @@
 import numpy as np
 import tkinter
 import matplotlib.pyplot as plt
-import matplotlib.backends.tkagg as tkagg
 from matplotlib.backends.backend_tkagg  import FigureCanvasTkAgg
 
 gridSize = 2 #マスの数を指定
@@ -22,7 +21,7 @@ if __name__ == "__main__":
         #グラフの設定
         fig,ax = plt.subplots()
         fig.gca().set_aspect('equal', adjustable='box')#グラフ領域の調整
-        gridSize = (gridSize * 2 + 1) #半区画の区切りを算出t
+        gridSize = (gridSize * 2 + 1) #半区画の区切りを算出
 
         #キャンバスの生成
         Canvas = FigureCanvasTkAgg(fig, master=root)
@@ -47,4 +46,4 @@ if __name__ == "__main__":
         import traceback
         traceback.print_exc()
     finally:
-        input(">>")
+        input(">>")#エラー吐き出したときの表示待ち

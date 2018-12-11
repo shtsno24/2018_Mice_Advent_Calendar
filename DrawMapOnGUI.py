@@ -11,19 +11,18 @@ import tkinter
 import tkinter.messagebox as tkmsg
 
 import matplotlib.pyplot as plt
-import matplotlib.backends.tkagg as tkagg
 from matplotlib.backends.backend_tkagg  import FigureCanvasTkAgg
 
 from functools import partial
 
-def quit():
+def Quit():
+       tkmsg.showinfo("","Happy Holidays!")
        root.quit()
        root.destroy()
 
 def DrawCanvas(canvas, ax, colors = "gray"):
     value = EditBox.get()
     if value != '':
-        print(value)
         EditBox.delete(0, tkinter.END)
         ax.cla()#前の描画データの消去
         gridSize = int(value)
@@ -70,7 +69,7 @@ if __name__ == "__main__":
         ReDrawButton = tkinter.Button(text="こうしん", width=15, command=partial(DrawCanvas, Canvas, ax1))#ボタンの生成
         ReDrawButton.grid(row=2, column=1, columnspan=2)#描画位置(テキトー)
 
-        QuitButton = tkinter.Button(text="やめる", width=15, command=quit)#ボタンの生成
+        QuitButton = tkinter.Button(text="やめる", width=15, command=Quit)#ボタンの生成
         QuitButton.grid(row=7, column=1, columnspan=2)#描画位置(テキトー)
         
         DrawCanvas(Canvas,ax1)
@@ -79,4 +78,4 @@ if __name__ == "__main__":
         import traceback
         traceback.print_exc()
     finally:
-        pass
+        input(">>")#エラー吐き出したときの表示待ち
